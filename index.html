@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Untuk Kamu</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      background: #ffcccc;
+      background-image: url("https://telegra.ph/file/48eaa63b5445a74423342.jpg");
+      background-position: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .love-message {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      margin: 10px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    #yesBtn {
+      background-color: #00cc00;
+      color: white;
+    }
+
+    #noBtn {
+      background-color: brown;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    const loveMessage = document.querySelector('.love-message');
+    const yesButton = document.getElementById('yesBtn');
+    const noButton = document.getElementById('noBtn');
+    const audio = new Audio('https://tmpfiles.org/3340856/1702198064037.mp3');
+    
+    // Mute the audio to comply with autoplay policies
+    audio.muted = true;
+
+    yesButton.addEventListener('click', function() {
+      loveMessage.innerHTML = "<p>Aku suka kamu, mau jadi pacar ku?</p>";
+      yesButton.style.display = 'none';
+      noButton.style.display = 'none';
+      audio.play();
+    });
+
+    noButton.addEventListener('click', function() {
+      loveMessage.innerHTML = "<p>Maaf jika mengganggu, semoga harimu menyenangkan.</p>";
+      loveMessage.style.color = 'black';
+      loveMessage.style.fontSize = '20px';
+      yesButton.style.position = 'absolute';
+      yesButton.style.left = Math.random() * 80 + "vw";
+      yesButton.style.top = Math.random() * 80 + "vh";
+    });
+  </script>
+
+  <div class="love-message">
+    <p>Aku suka kamu, mau jadi pacar ku?</p>
+  </div>
+  <button class="btn" id="yesBtn">Iyaa mau kok</button>
+  <button class="btn" id="noBtn">Maaf ya kak gamau</button>
+</body>
+</html>
